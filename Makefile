@@ -1,4 +1,4 @@
-PYTHON = python3
+PYTHON = ./myenv/Scripts/python.exe
 
 run:
-    $(PYTHON) manage.py runserver
+	$(PYTHON) taskmanager/manage.py runserver
