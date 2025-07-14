@@ -10,12 +10,23 @@
         {% for el in tasks %}
             <div class="alert alert-warning mt-2">
                 <h3>{{ el.title }}</h3>
-                <p>{{ el.task }}</p>
+                <p>{{ el.description }}</p>
+
+                <!-- вывод текущего статуса -->
+                <p><strong>Статус:</strong> {{ el.get_status_display }}</p>
+
+                <!-- кнопки для смены статуса -->
+                <div>
+                    <a href="{% url 'change_status' el.id 'in_progress' %}" class="btn btn-primary btn-sm">In Progress</a>
+                    <a href="{% url 'change_status' el.id 'complete' %}" class="btn btn-success btn-sm">Complete</a>
+                    <a href="{% url 'change_status' el.id 'canceled' %}" class="btn btn-danger btn-sm">Canceled</a>
+                </div>
             </div>
         {% endfor %}
     {% else %}
         <p>У нас нет записей!</p>
     {% endif %}
 {% endblock %}
+
 
 
