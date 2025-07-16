@@ -33,10 +33,3 @@ def change_status(request, task_id, new_status):
         task.status = new_status
         task.save()
     return redirect('home')
-
-    form = TaskForm()
-    context = {
-        'form': form,
-        'error': error
-    }
-    return render(request, 'main/create.html', context)
